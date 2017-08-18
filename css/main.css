@@ -195,6 +195,11 @@ p {
   padding: 20px 0;
   border-bottom: 1px dotted #ddd;
 }
+.post:after {
+  content: "";
+  display: block;
+  clear: both;
+}
 .post__title {
   font-size: 24px;
   margin-bottom: 5px;
@@ -223,10 +228,6 @@ p {
   content: "\f073";
   margin-right: .5em;
 }
-.post__content {
-  font-size: 14px;
-  line-height: 1.5em;
-}
 .post__tag li {
   display: inline-block;
   white-space: nowrap;
@@ -241,6 +242,35 @@ p {
   font-family: "FontAwesome";
   content: "\f02b";
   margin-right: .5em;
+}
+.post__content {
+  font-size: 14px;
+  line-height: 1.5em;
+}
+.post__detail,
+.is-show .post__brief {
+  display: none;
+  clear: both;
+}
+.is-show .post__detail {
+  display: block;
+}
+.post__showall {
+  display: block;
+  float: right;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 18px;
+  background: #eee;
+  border-radius: 3px;
+  padding: 1px 5px;
+  margin-top: 5px;
+}
+.post__showall:before {
+  content: "展开";
+}
+.is-show .post__showall:before {
+  content: "收起";
 }
 .footer {
   padding: 20px 0;

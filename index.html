@@ -51,12 +51,37 @@
         </time>
     </div>
     
-    <div class="post__content">
+    <div class="post__content ">
         
+        <div class="post__brief">
             原本是想实现在IE7/8下能兼容rem单位的polyfill，结果不小心踩到几个坑。特记录如下
 1、IE7下，可以用style.getAttribute(“width”)来获取到不支持的属性值；但IE8下不可以；
 2、不支持的属性的属性值，如background-size，是可以直接获取到的；
-3、IE7/8下，&lt;style&gt;标签的innerHTML，只有在页面加载后的极短时间，...
+3、IE7/8下，...
+        </div>
+        
+        <div class="post__detail">
+            <p>原本是想实现在IE7/8下能兼容rem单位的polyfill，结果不小心踩到几个坑。特记录如下</p>
+<p>1、IE7下，可以用style.getAttribute(“width”)来获取到不支持的属性值；但IE8下不可以；</p>
+<p>2、不支持的属性的属性值，如background-size，是可以直接获取到的；</p>
+<p>3、IE7/8下，&lt;style&gt;标签的innerHTML，只有在页面加载后的极短时间，能获取原始值；获取到的是浏览器处理过的值，不支持的属性值都被干掉了。</p>
+
+        </div>
+        
+        <span class="post__showall" onclick="javascript:articleFolder(this)"></span>
+        <script>
+        function articleFolder(thisbtn) {
+            var allArc = $(".post__content")
+            var arc = $(thisbtn).parent(".post__content");
+            if(arc.hasClass("is-show")) {
+                arc.removeClass("is-show");
+            }
+            else {
+                allArc.removeClass("is-show");
+                arc.addClass("is-show");
+            }
+        }
+        </script>
         
     </div>
     
@@ -83,6 +108,8 @@
     </div>
 </footer>
 <!-- //footer -->
+
+<script src="https://unpkg.com/jquery"></script>
 
 
 </body>
