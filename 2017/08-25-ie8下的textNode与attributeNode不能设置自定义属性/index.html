@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
     <meta name="format-detection" content="telephone=no,email=no">
     
-    <title>ios下弹性滚动的bug | 杜草原de踩坑记录</title>
+    <title>ie8下文本节点与属性节点不能增加自定义属性 | 杜草原de踩坑记录</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="applicable-device" content="pc,mobile">
@@ -43,7 +43,7 @@
     <article class="post">
     <div class="post__header">
         <h1 class="post__title">
-            <a class="post__link" href="/2017/08-25-ios下弹性滚动的bug/">ios下弹性滚动的bug</a>
+            <a class="post__link" href="/2017/08-25-ie8下的textNode与attributeNode不能设置自定义属性/">ie8下文本节点与属性节点不能增加自定义属性</a>
         </h1>
         <time class="post__time">
             2017-08-25
@@ -53,11 +53,14 @@
     <div class="post__content is-show">
         
         <div class="post__detail">
-            <p>在ios的UIWebView下，overflow:auto; 的元素的滚动很生硬，有时候会用 -webkit-overflow-scrolling:touch; 来实现类似原生的弹性滚动。</p>
-<p>原理大约是UIWebView会对设置了 -webkit-overflow-scrolling:touch; 的对象，创建一个UIWebOverflowScrollView来实现类似原生的渲染。</p>
-<p>一般情况下没什么问题，但在某些时候，元素在内容滚动时会卡住，并带着整个页面一起移动了。</p>
-<p>暂时没有找到好的解决方法，只能先把弹性滚动干掉了。</p>
-<p>参考 <a href="http://www.cnblogs.com/chris-oil/p/6164966.html" target="_blank" rel="external">iOS 与 惯性滚动</a></p>
+            <p>之前与 @张海峰 一起实现了一个HTML模板功能，不使用innerhtml，只替换对应的模板字符串。</p>
+<p>实现原理是为遍历筛选出包含模板字符串的文本节点与属性节点，将原始模板保存在当前节点的一个自定义属性（例如_template）中。此后进行替换时，取当前节点的_template属性值进行计算。</p>
+<p>在高版本浏览器中，运行很好，但在ie7/8下就坑了。ie7/8并不支持为text node与attribute node增加自定义属性，只支持element node增加自定义属性。</p>
+<p>于是单独对ie7/8进行处理。</p>
+<ol>
+<li>当包含模板字符串的node为text时，document.createComment()创建一个注释节点保存模板内容， insertBefore当前textNode。</li>
+<li>当node为attribute时，为当前的element增加一个自定义属性（例如data-tpl-attrName），属性值为当前attributeNode的值。</li>
+</ol>
 
         </div>
         

@@ -44,6 +44,47 @@
     <article class="post">
     <div class="post__header">
         <h1 class="post__title">
+            <a class="post__link" href="/2017/08-25-ie8下的textNode与attributeNode不能设置自定义属性/">ie8下文本节点与属性节点不能增加自定义属性</a>
+        </h1>
+        <time class="post__time">
+            2017-08-25
+        </time>
+    </div>
+    
+    <div class="post__content ">
+        
+        <div class="post__brief">
+            之前与 @张海峰 一起实现了一个HTML模板功能，不使用innerhtml，只替换对应的模板字符串。
+实现原理是为遍历筛选出包含模板字符串的文本节点与属性节点，将原始模板保存在当前节点的一个自定义属性（例如_template）中。此后进行替换时，取当前节点的_template属性值进行计算。
+在高版本浏览器中，运...
+        </div>
+        
+        <div class="post__detail">
+            <p>之前与 @张海峰 一起实现了一个HTML模板功能，不使用innerhtml，只替换对应的模板字符串。</p>
+<p>实现原理是为遍历筛选出包含模板字符串的文本节点与属性节点，将原始模板保存在当前节点的一个自定义属性（例如_template）中。此后进行替换时，取当前节点的_template属性值进行计算。</p>
+<p>在高版本浏览器中，运行很好，但在ie7/8下就坑了。ie7/8并不支持为text node与attribute node增加自定义属性，只支持element node增加自定义属性。</p>
+<p>于是单独对ie7/8进行处理。</p>
+<ol>
+<li>当包含模板字符串的node为text时，document.createComment()创建一个注释节点保存模板内容， insertBefore当前textNode。</li>
+<li>当node为attribute时，为当前的element增加一个自定义属性（例如data-tpl-attrName），属性值为当前attributeNode的值。</li>
+</ol>
+
+        </div>
+        
+        <span class="post__showall" onclick="javascript:articleFolder(this)"></span>
+        
+    </div>
+    
+    
+    <div class="post__tag">
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术文档/">技术文档</a></li></ul>
+    </div>
+    
+</article>
+
+    <article class="post">
+    <div class="post__header">
+        <h1 class="post__title">
             <a class="post__link" href="/2017/08-25-ios下弹性滚动的bug/">ios下弹性滚动的bug</a>
         </h1>
         <time class="post__time">
@@ -68,19 +109,6 @@
         </div>
         
         <span class="post__showall" onclick="javascript:articleFolder(this)"></span>
-        <script>
-        function articleFolder(thisbtn) {
-            var allArc = $(".post__content")
-            var arc = $(thisbtn).parent(".post__content");
-            if(arc.hasClass("is-show")) {
-                arc.removeClass("is-show");
-            }
-            else {
-                allArc.removeClass("is-show");
-                arc.addClass("is-show");
-            }
-        }
-        </script>
         
     </div>
     
@@ -119,19 +147,6 @@
         </div>
         
         <span class="post__showall" onclick="javascript:articleFolder(this)"></span>
-        <script>
-        function articleFolder(thisbtn) {
-            var allArc = $(".post__content")
-            var arc = $(thisbtn).parent(".post__content");
-            if(arc.hasClass("is-show")) {
-                arc.removeClass("is-show");
-            }
-            else {
-                allArc.removeClass("is-show");
-                arc.addClass("is-show");
-            }
-        }
-        </script>
         
     </div>
     
@@ -159,7 +174,8 @@
 </footer>
 <!-- //footer -->
 
-<script src="https://unpkg.com/jquery"></script>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 </body>
