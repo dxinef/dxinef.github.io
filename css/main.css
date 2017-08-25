@@ -255,6 +255,13 @@ p {
 .is-show .post__detail {
   display: block;
 }
+.post__detail p {
+  margin-bottom: 10px;
+}
+.post__detail a {
+  color: #369;
+  text-decoration: underline dotted;
+}
 .post__showall {
   display: block;
   float: right;

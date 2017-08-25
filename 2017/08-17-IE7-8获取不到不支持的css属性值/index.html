@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
     <meta name="format-detection" content="telephone=no,email=no">
     
-    <title>archive_a | 杜草原de踩坑记录</title>
+    <title>IE7/8获取不到不支持的css属性值 | 杜草原de踩坑记录</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="applicable-device" content="pc,mobile">
@@ -40,24 +40,6 @@
 <!-- content -->
 <section class="content" id="content">
     <div class="content__inner">
-    
-    <article class="post">
-    <div class="post__header">
-        <h1 class="post__title">
-            <a class="post__link" href="/2017/08-25-ios下弹性滚动的bug/">ios下弹性滚动的bug</a>
-        </h1>
-        <time class="post__time">
-            2017-08-25
-        </time>
-    </div>
-    
-    
-    <div class="post__tag">
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术文档/">技术文档</a></li></ul>
-    </div>
-    
-</article>
-
     <article class="post">
     <div class="post__header">
         <h1 class="post__title">
@@ -68,16 +50,24 @@
         </time>
     </div>
     
+    <div class="post__content is-show">
+        
+        <div class="post__detail">
+            <p>原本是想实现在IE7/8下能兼容rem单位的polyfill，结果不小心踩到几个坑。特记录如下</p>
+<p>1、IE7下，可以用style.getAttribute(“width”)来获取到不支持的属性值；但IE8下不可以；</p>
+<p>2、不支持的属性的属性值，如background-size，是可以直接获取到的；</p>
+<p>3、IE7/8下，&lt;style&gt;标签的innerHTML，只有在页面加载后的极短时间，能获取原始值；获取到的是浏览器处理过的值，不支持的属性值都被干掉了。</p>
+
+        </div>
+        
+    </div>
+    
     
     <div class="post__tag">
         <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术文档/">技术文档</a></li></ul>
     </div>
     
 </article>
-
-<div class="pagination">
-    <span class="page-number current">1</span>
-</div>
     </div>
 </section>
 <!-- //content -->

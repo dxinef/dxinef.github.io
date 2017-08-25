@@ -44,7 +44,57 @@
     <article class="post">
     <div class="post__header">
         <h1 class="post__title">
-            <a class="post__link" href="/2017/08-17-IE7-8获取不支持的css属性值的坑/">IE7/8获取不支持的css属性值的坑</a>
+            <a class="post__link" href="/2017/08-25-ios下弹性滚动的bug/">ios下弹性滚动的bug</a>
+        </h1>
+        <time class="post__time">
+            2017-08-25
+        </time>
+    </div>
+    
+    <div class="post__content ">
+        
+        <div class="post__brief">
+            在ios的UIWebView下，overflow:auto; 的元素的滚动很生硬，有时候会用 -webkit-overflow-scrolling:touch; 来实现类似原生的弹性滚动。
+原理大约是UIWebView会对设置了 -webkit-overflow-scrolling:touch; 的对象，创建一个...
+        </div>
+        
+        <div class="post__detail">
+            <p>在ios的UIWebView下，overflow:auto; 的元素的滚动很生硬，有时候会用 -webkit-overflow-scrolling:touch; 来实现类似原生的弹性滚动。</p>
+<p>原理大约是UIWebView会对设置了 -webkit-overflow-scrolling:touch; 的对象，创建一个UIWebOverflowScrollView来实现类似原生的渲染。</p>
+<p>一般情况下没什么问题，但在某些时候，元素在内容滚动时会卡住，并带着整个页面一起移动了。</p>
+<p>暂时没有找到好的解决方法，只能先把弹性滚动干掉了。</p>
+<p>参考 <a href="http://www.cnblogs.com/chris-oil/p/6164966.html" target="_blank" rel="external">iOS 与 惯性滚动</a></p>
+
+        </div>
+        
+        <span class="post__showall" onclick="javascript:articleFolder(this)"></span>
+        <script>
+        function articleFolder(thisbtn) {
+            var allArc = $(".post__content")
+            var arc = $(thisbtn).parent(".post__content");
+            if(arc.hasClass("is-show")) {
+                arc.removeClass("is-show");
+            }
+            else {
+                allArc.removeClass("is-show");
+                arc.addClass("is-show");
+            }
+        }
+        </script>
+        
+    </div>
+    
+    
+    <div class="post__tag">
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术文档/">技术文档</a></li></ul>
+    </div>
+    
+</article>
+
+    <article class="post">
+    <div class="post__header">
+        <h1 class="post__title">
+            <a class="post__link" href="/2017/08-17-IE7-8获取不到不支持的css属性值/">IE7/8获取不到不支持的css属性值</a>
         </h1>
         <time class="post__time">
             2017-08-17
