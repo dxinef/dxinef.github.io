@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
     <meta name="format-detection" content="telephone=no,email=no">
     
-    <title>archive_a | 杜草原de踩坑记录</title>
+    <title>input:file 打开很慢 | 杜草原de踩坑记录</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="applicable-device" content="pc,mobile">
@@ -40,7 +40,6 @@
 <!-- content -->
 <section class="content" id="content">
     <div class="content__inner">
-    
     <article class="post">
     <div class="post__header">
         <h1 class="post__title">
@@ -51,33 +50,24 @@
         </time>
     </div>
     
+    <div class="post__content is-show">
+        
+        <div class="post__detail">
+            <p>某后台系统项目，开发反映说页面中的input:file点击后，有时候需要数秒后才弹出选择文件的窗口。正常情况下，应该是点击后立刻就弹出；但有时候要等上三五秒。</p>
+<p>经查网上查资料以及慢慢排查，确定是 accept=”image/*” 所导致。</p>
+<p>改为 accept=”image/jpg,image/jpeg,image/png” 解决问题。</p>
+<p>猜测是因为文件夹内文件太多，而浏览器需要在文件选择弹框内对文件进行比对通配符来过滤导致的。</p>
+
+        </div>
+        
+    </div>
+    
     
     <div class="post__tag">
         <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/踩坑/">踩坑</a></li></ul>
     </div>
     
 </article>
-
-    <article class="post">
-    <div class="post__header">
-        <h1 class="post__title">
-            <a class="post__link" href="/2017/09-08-镂空蒙版层的几种实现/">镂空蒙版层的几种实现</a>
-        </h1>
-        <time class="post__time">
-            2017-09-08
-        </time>
-    </div>
-    
-    
-    <div class="post__tag">
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术文档/">技术文档</a></li></ul>
-    </div>
-    
-</article>
-
-<div class="pagination">
-    <span class="page-number current">1</span>
-</div>
     </div>
 </section>
 <!-- //content -->
