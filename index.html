@@ -105,7 +105,7 @@
 <p>第一种：超大的尺寸半透明背景上抠了洞的图片。这种方法并不推荐。除非是可预见屏幕尺寸并不大的情况下。</p>
 <p>第二种：将蒙版层分成5块，上下左右都直接用background-color处理，中间的区块用一张合适大小的抠洞半透明图片。这种方法比前一种要好，但要在html结构上增加5个div的结构，对于有强迫症的csser来说，实在有点难受。</p>
 <h2 id="2、通过-border-实现"><a href="#2、通过-border-实现" class="headerlink" title="2、通过 border 实现"></a>2、通过 border 实现</h2><p>这其实算是逆向思维，将 border 设置为半透明颜色、尺寸超大，div本身没有背景色，稍微调整下位置就能实现得很好。通过  border-radius 还可以实现矩形、圆形、椭圆形的镂空。</p>
-<p>在张鑫旭的博客上又看到一个更好的实现，不是设置 border ，而是使用 outline 。outline 的好处是不会增加元素尺寸和改变布局，只需要设一个非常非常大的宽度值就可以了。（参考 <a href="http://www.zhangxinxu.com/wordpress/2017/05/jquery-guide-js-plugin/" target="_blank" rel="external">jquery.guide.js新版上线操作向导镂空提示jQuery插件 &laquo;  张鑫旭-鑫空间-鑫生活</a> ）</p>
+<p>在张鑫旭的博客上又看到一个更好的实现，不是设置 border ，而是使用 outline || box-shadow 。outline 的好处是不会增加元素尺寸和改变布局，只需要设一个非常非常大的宽度值就可以了。（参考 <a href="http://www.zhangxinxu.com/wordpress/2017/05/jquery-guide-js-plugin/" target="_blank" rel="external">jquery.guide.js新版上线操作向导镂空提示jQuery插件 &laquo;  张鑫旭-鑫空间-鑫生活</a> ）</p>
 <h2 id="3、通过-background-的渐变实现"><a href="#3、通过-background-的渐变实现" class="headerlink" title="3、通过 background 的渐变实现"></a>3、通过 background 的渐变实现</h2><p>通过设置 linear-gradient 和 radial-gradient ，用半透明-透明的渐变色来实现背景的镂空。这个方法思路很清晰，就是太麻烦了，要去计算一大堆尺寸和坐标。</p>
 <h2 id="4、clip-path-属性"><a href="#4、clip-path-属性" class="headerlink" title="4、clip-path 属性"></a>4、clip-path 属性</h2><p>待补充。</p>
 <p>参考 <a href="http://bennettfeely.com/clippy/" target="_blank" rel="external">Clippy — CSS clip-path maker</a></p>
