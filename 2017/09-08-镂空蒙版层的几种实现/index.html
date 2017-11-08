@@ -53,16 +53,17 @@
     <div class="post__content is-show">
         
         <div class="post__detail">
-            <p>蒙版层是网页上常用的一种效果，一般用于显示模态弹出层时屏蔽对下层的操作。实现很easy，一般 background: rgba(0,0,0,0.7); 就可以了。</p>
+            <p>蒙版层是网页上常用的一种效果，一般用于显示模态弹出层时屏蔽对下层的操作。实现很easy，一般 <code>background: rgba(0,0,0,0.7);</code> 就可以了。</p>
 <p>但还有一种使用场景，像“使用引导”这类，就不能简单用半透明背景色来处理。这种情况下，需要对蒙版进行“镂空”的处理。</p>
 <p>有粗暴处理的方法，就是用一张对应页面区域的截图进行定位，但这只适合下层的页面部分为纯静态内容，如果是动态处理的内容，那就不合适了。</p>
 <p>之前总结过一些处理的思路，还做了demo。可是忘记了保存在什么地方（哭死，论有规律存档的重要性）。。。只能重新总结，这次应该不会再丢失吧。</p>
 <h2 id="1、图片实现"><a href="#1、图片实现" class="headerlink" title="1、图片实现"></a>1、图片实现</h2><p>图片实现也有两种思路。</p>
 <p>第一种：超大的尺寸半透明背景上抠了洞的图片。这种方法并不推荐。除非是可预见屏幕尺寸并不大的情况下。</p>
 <p>第二种：将蒙版层分成5块，上下左右都直接用background-color处理，中间的区块用一张合适大小的抠洞半透明图片。这种方法比前一种要好，但要在html结构上增加5个div的结构，对于有强迫症的csser来说，实在有点难受。</p>
-<h2 id="2、通过-border-实现"><a href="#2、通过-border-实现" class="headerlink" title="2、通过 border 实现"></a>2、通过 border 实现</h2><p>这其实算是逆向思维，将 border 设置为半透明颜色、尺寸超大，div本身没有背景色，稍微调整下位置就能实现得很好。通过  border-radius 还可以实现矩形、圆形、椭圆形的镂空。</p>
-<p>在张鑫旭的博客上又看到一个更好的实现，不是设置 border ，而是使用 outline || box-shadow 。outline 的好处是不会增加元素尺寸和改变布局，只需要设一个非常非常大的宽度值就可以了。（参考 <a href="http://www.zhangxinxu.com/wordpress/2017/05/jquery-guide-js-plugin/" target="_blank" rel="external">jquery.guide.js新版上线操作向导镂空提示jQuery插件 &laquo;  张鑫旭-鑫空间-鑫生活</a> ）</p>
-<h2 id="3、通过-background-的渐变实现"><a href="#3、通过-background-的渐变实现" class="headerlink" title="3、通过 background 的渐变实现"></a>3、通过 background 的渐变实现</h2><p>通过设置 linear-gradient 和 radial-gradient ，用半透明-透明的渐变色来实现背景的镂空。这个方法思路很清晰，就是太麻烦了，要去计算一大堆尺寸和坐标。</p>
+<h2 id="2、通过-border-实现"><a href="#2、通过-border-实现" class="headerlink" title="2、通过 border 实现"></a>2、通过 border 实现</h2><p>这其实算是逆向思维，将 <code>border</code> 设置为半透明颜色、尺寸超大，div本身没有背景色，稍微调整下位置就能实现得很好。通过  <code>border-radius</code> 还可以实现矩形、圆形、椭圆形的镂空。</p>
+<p>在张鑫旭的博客上又看到一个更好的实现，不是设置 <code>border</code> ，而是使用 <code>outline</code>。好处是不会增加元素尺寸和改变布局，只需要设一个非常非常大的宽度值就可以了。（参考 <a href="http://www.zhangxinxu.com/wordpress/2017/05/jquery-guide-js-plugin/" target="_blank" rel="external">jquery.guide.js新版上线操作向导镂空提示jQuery插件 &laquo;  张鑫旭-鑫空间-鑫生活</a> ）</p>
+<p>某些浏览器对<code>outline</code>支持不好，可以用<code>box-shadow</code>替代实现。</p>
+<h2 id="3、通过-background-的渐变实现"><a href="#3、通过-background-的渐变实现" class="headerlink" title="3、通过 background 的渐变实现"></a>3、通过 background 的渐变实现</h2><p>通过设置 <code>linear-gradient</code> 和 <code>radial-gradient</code> ，用半透明-透明的渐变色来实现背景的镂空。这个方法思路很清晰，就是太麻烦了，要去计算一大堆尺寸和坐标。</p>
 <h2 id="4、clip-path-属性"><a href="#4、clip-path-属性" class="headerlink" title="4、clip-path 属性"></a>4、clip-path 属性</h2><p>待补充。</p>
 <p>参考 <a href="http://bennettfeely.com/clippy/" target="_blank" rel="external">Clippy — CSS clip-path maker</a></p>
 <h2 id="5、mask-属性"><a href="#5、mask-属性" class="headerlink" title="5、mask 属性"></a>5、mask 属性</h2><p>待补充。</p>
