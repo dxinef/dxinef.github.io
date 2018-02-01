@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit"> 
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+    
+    <title>IE各个版本hack | 杜草原de踩坑记录</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="applicable-device" content="pc,mobile">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+</head>
+<body>
+<!-- header -->
+<header class="header" id="header">
+    <div class="header__inner">
+        <h1 class="title">
+            
+            <img src="https://avatars0.githubusercontent.com/u/16408347">
+            <em><a href="/">杜草原de踩坑记录</a></em>
+            <span>踩坑不要紧，关键是能爬出来</span>
+        </h1>
+        <nav class="nav">
+            
+            <a href="/"><i class="fa fa-home"></i> Home</a>
+            
+            <a href="/archives"><i class="fa fa-file-text"></i> Archives</a>
+            
+            <a href="/about"><i class="fa fa-id-card"></i> About</a>
+            
+        </nav>
+    </div>
+</header>
+<!-- //header -->
+
+<!-- content -->
+<section class="content" id="content">
+    <div class="content__inner">
+    <article class="post">
+    <div class="post__header">
+        <h1 class="post__title">
+            <a class="post__link" href="/2018/02-01-IE各个版本hack/">IE各个版本hack</a>
+        </h1>
+        <time class="post__time">
+            2018-02-01
+        </time>
+    </div>
+    
+    <div class="post__content is-show">
+        
+        <div class="post__detail">
+            <h2 id="1、CSS-HACK实现"><a href="#1、CSS-HACK实现" class="headerlink" title="1、CSS HACK实现"></a>1、CSS HACK实现</h2><p>IE 6</p>
+<pre><code>* html .ie6 {property:value;}
+</code></pre><p>or</p>
+<pre><code>.ie6 { _property:value;}
+</code></pre><p>IE 7</p>
+<pre><code>*+html .ie7 {property:value;}
+</code></pre><p>or</p>
+<pre><code>*:first-child+html .ie7 {property:value;}
+</code></pre><p>IE 6 and 7</p>
+<pre><code>@media screen\9 {
+    .ie67 {property:value;}
+}
+</code></pre><p>or</p>
+<pre><code>.ie67 { *property:value;}
+</code></pre><p>or</p>
+<pre><code>.ie67 { #property:value;}
+</code></pre><p>IE 6, 7 and 8</p>
+<pre><code>@media \0screen\,screen\9 {
+    .ie678 {property:value;}
+}
+</code></pre><p>IE 8</p>
+<pre><code>html&gt;/**/body .ie8 {property:value;}
+</code></pre><p>or</p>
+<pre><code>@media \0screen {
+    .ie8 {property:value;}
+}
+</code></pre><p>IE 8 Standards Mode Only</p>
+<pre><code>.ie8 { property /*\**/: value\9 }
+</code></pre><p>IE 8,9 and 10</p>
+<pre><code>@media screen\0 {
+    .ie8910 {property:value;}
+}
+</code></pre><p>IE 9 only</p>
+<pre><code>@media screen and (min-width:0\0) and (min-resolution: .001dpcm) { 
+// IE9 CSS
+.ie9{property:value;}
+}
+</code></pre><p>IE 9 and above</p>
+<pre><code>@media screen and (min-width:0\0) and (min-resolution: +72dpi) {
+// IE9+ CSS
+.ie9up{property:value;}
+}
+</code></pre><p>IE 9 and 10</p>
+<pre><code>@media screen and (min-width:0\0) {
+    .ie910{property:value\9;}
+    /* backslash-9 removes ie11+ &amp; old Safari 4 */
+}
+</code></pre><p>IE 10 only</p>
+<pre><code>_:-ms-lang(x), .ie10 { property:value\9; }
+</code></pre><p>IE 10 and above</p>
+<pre><code>_:-ms-lang(x), .ie10up { property:value; }
+</code></pre><p>or</p>
+<pre><code>@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .ie10up{property:value;}
+}
+</code></pre><p>IE 11 (and above..)</p>
+<pre><code>_:-ms-fullscreen, :root .ie11up { property:value; }
+</code></pre><h2 id="2、JS-判断-userAgent-实现"><a href="#2、JS-判断-userAgent-实现" class="headerlink" title="2、JS 判断 userAgent 实现"></a>2、JS 判断 userAgent 实现</h2><p>JS代码</p>
+<pre><code>document.documentElement.setAttribute(&apos;data-useragent&apos;,  navigator.userAgent);
+</code></pre><p>CSS代码</p>
+<pre><code>html[data-useragent*=&apos;Chrome/13.0&apos;] {
+    ...
+}
+</code></pre><p>References:<br><a href="https://stackoverflow.com/questions/20541306/how-to-write-a-css-hack-for-ie-11/20541859#20541859" target="_blank" rel="external">css selectors - How to write a CSS hack for IE 11? - Stack Overflow</a></p>
+
+        </div>
+        
+    </div>
+    
+    
+</article>
+    </div>
+</section>
+<!-- //content -->
+
+<!-- footer -->
+<footer class="footer" id="footer">
+    <div class="footer__inner">
+        <div class="copyright">
+            © 2017 <i class="fa fa-heart"></i> 杜草原
+        </div>
+    </div>
+</footer>
+<!-- //footer -->
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
