@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
     <meta name="format-detection" content="telephone=no,email=no">
     
-    <title>archive_a | 杜草原de踩坑记录</title>
+    <title>在switch语句中使用正则 | 杜草原de踩坑记录</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="applicable-device" content="pc,mobile">
@@ -40,7 +40,6 @@
 <!-- content -->
 <section class="content" id="content">
     <div class="content__inner">
-    
     <article class="post">
     <div class="post__header">
         <h1 class="post__title">
@@ -51,51 +50,46 @@
         </time>
     </div>
     
-    
-</article>
-
-    <article class="post">
-    <div class="post__header">
-        <h1 class="post__title">
-            <a class="post__link" href="/2018/04-11-console-font-color/">console font color</a>
-        </h1>
-        <time class="post__time">
-            2018-04-11
-        </time>
+    <div class="post__content is-show">
+        
+        <div class="post__detail">
+            <p>方法1</p>
+<pre><code>var str = &quot;abcxyz&quot;;
+switch(true) {
+    case /xyz/.test(str) :
+        console.log(&quot;1&quot;);
+        break;
+    default:
+        console.log(&quot;0&quot;);
+        break;
+}
+</code></pre><p>方法2</p>
+<pre><code>var str = &quot;abcxyz&quot;;
+switch(str) {
+    case (str.match(/xyz/) || {}).input :
+        console.log(&quot;1&quot;);
+        break;
+    default:
+        console.log(&quot;0&quot;);
+        break;
+}
+</code></pre><p>方法3</p>
+<pre><code>var str = &quot;abcxyz&quot;;
+switch(str) {
+    case (/xyz/.test(str) ? str : NaN) : //输入值为NaN时不命中
+        console.log(&quot;1&quot;);
+        break;
+    default:
+        console.log(&quot;0&quot;);
+        break;
+}
+</code></pre>
+        </div>
+        
     </div>
     
     
 </article>
-
-    <article class="post">
-    <div class="post__header">
-        <h1 class="post__title">
-            <a class="post__link" href="/2018/02-01-IE各个版本hack/">IE各个版本hack</a>
-        </h1>
-        <time class="post__time">
-            2018-02-01
-        </time>
-    </div>
-    
-    
-</article>
-
-    <article class="post">
-    <div class="post__header">
-        <h1 class="post__title">
-            <a class="post__link" href="/2018/01-19-自己做的一个小游戏/">自己做的一个小游戏</a>
-        </h1>
-        <time class="post__time">
-            2018-01-19
-        </time>
-    </div>
-    
-    
-</article>
-
-<div class="pagination">
-    <span class="page-number current">1</span>
-</div>
     </div>
 </section>
 <!-- //content -->

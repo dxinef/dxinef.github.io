@@ -44,6 +44,70 @@
     <article class="post">
     <div class="post__header">
         <h1 class="post__title">
+            <a class="post__link" href="/2018/04-27-在switch语句中使用正则/">在switch语句中使用正则</a>
+        </h1>
+        <time class="post__time">
+            2018-04-27
+        </time>
+    </div>
+    
+    <div class="post__content ">
+        
+        <div class="post__brief">
+            方法1
+var str = &quot;abcxyz&quot;;
+switch(true) {
+    case /xyz/.test(str) :
+        console.log(&quot;1&quot;);
+        break;
+    default:
+        console.l...
+        </div>
+        
+        <div class="post__detail">
+            <p>方法1</p>
+<pre><code>var str = &quot;abcxyz&quot;;
+switch(true) {
+    case /xyz/.test(str) :
+        console.log(&quot;1&quot;);
+        break;
+    default:
+        console.log(&quot;0&quot;);
+        break;
+}
+</code></pre><p>方法2</p>
+<pre><code>var str = &quot;abcxyz&quot;;
+switch(str) {
+    case (str.match(/xyz/) || {}).input :
+        console.log(&quot;1&quot;);
+        break;
+    default:
+        console.log(&quot;0&quot;);
+        break;
+}
+</code></pre><p>方法3</p>
+<pre><code>var str = &quot;abcxyz&quot;;
+switch(str) {
+    case (/xyz/.test(str) ? str : NaN) : //输入值为NaN时不命中
+        console.log(&quot;1&quot;);
+        break;
+    default:
+        console.log(&quot;0&quot;);
+        break;
+}
+</code></pre>
+        </div>
+        
+        <span class="post__showall" onclick="javascript:articleFolder(this)"></span>
+        
+    </div>
+    
+    
+</article>
+
+    <article class="post">
+    <div class="post__header">
+        <h1 class="post__title">
             <a class="post__link" href="/2018/04-11-console-font-color/">console font color</a>
         </h1>
         <time class="post__time">
