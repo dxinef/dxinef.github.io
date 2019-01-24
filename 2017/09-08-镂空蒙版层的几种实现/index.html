@@ -1,59 +1,326 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="renderer" content="webkit"> 
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
-    <meta name="format-detection" content="telephone=no,email=no">
-    
-    <title>镂空蒙版层的几种实现 | 杜草原de踩坑记录</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="applicable-device" content="pc,mobile">
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
-</head>
-<body>
-<!-- header -->
-<header class="header" id="header">
-    <div class="header__inner">
-        <h1 class="title">
-            
-            <img src="https://avatars0.githubusercontent.com/u/16408347">
-            <em><a href="/">杜草原de踩坑记录</a></em>
-            <span>踩坑不要紧，关键是能爬出来</span>
-        </h1>
-        <nav class="nav">
-            
-            <a href="/"><i class="fa fa-home"></i> Home</a>
-            
-            <a href="/archives"><i class="fa fa-file-text"></i> Archives</a>
-            
-            <a href="/about"><i class="fa fa-id-card"></i> About</a>
-            
-        </nav>
-    </div>
-</header>
-<!-- //header -->
 
-<!-- content -->
-<section class="content" id="content">
-    <div class="content__inner">
-    <article class="post">
-    <div class="post__header">
-        <h1 class="post__title">
-            <a class="post__link" href="/2017/09-08-镂空蒙版层的几种实现/">镂空蒙版层的几种实现</a>
-        </h1>
-        <time class="post__time">
-            2017-09-08
-        </time>
-    </div>
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
     
-    <div class="post__content is-show">
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="技术文档," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="蒙版层是网页上常用的一种效果，一般用于显示模态弹出层时屏蔽对下层的操作。实现很easy，一般 background: rgba(0,0,0,0.7); 就可以了。 但还有一种使用场景，像“使用引导”这类，就不能简单用半透明背景色来处理。这种情况下，需要对蒙版进行“镂空”的处理。 有粗暴处理的方法，就是用一张对应页面区域的截图进行定位，但这只适合下层的页面部分为纯静态内容，如果是动态处理的内容，那就">
+<meta name="keywords" content="技术文档">
+<meta property="og:type" content="article">
+<meta property="og:title" content="镂空蒙版层的几种实现">
+<meta property="og:url" content="https://dxinef.github.io/2017/09-08-镂空蒙版层的几种实现/index.html">
+<meta property="og:site_name" content="杜草原de踩坑记录">
+<meta property="og:description" content="蒙版层是网页上常用的一种效果，一般用于显示模态弹出层时屏蔽对下层的操作。实现很easy，一般 background: rgba(0,0,0,0.7); 就可以了。 但还有一种使用场景，像“使用引导”这类，就不能简单用半透明背景色来处理。这种情况下，需要对蒙版进行“镂空”的处理。 有粗暴处理的方法，就是用一张对应页面区域的截图进行定位，但这只适合下层的页面部分为纯静态内容，如果是动态处理的内容，那就">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-22T08:17:45.386Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="镂空蒙版层的几种实现">
+<meta name="twitter:description" content="蒙版层是网页上常用的一种效果，一般用于显示模态弹出层时屏蔽对下层的操作。实现很easy，一般 background: rgba(0,0,0,0.7); 就可以了。 但还有一种使用场景，像“使用引导”这类，就不能简单用半透明背景色来处理。这种情况下，需要对蒙版进行“镂空”的处理。 有粗暴处理的方法，就是用一张对应页面区域的截图进行定位，但这只适合下层的页面部分为纯静态内容，如果是动态处理的内容，那就">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://dxinef.github.io/2017/09-08-镂空蒙版层的几种实现/"/>
+
+
+
+
+
+  <title>镂空蒙版层的几种实现 | 杜草原de踩坑记录</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">杜草原de踩坑记录</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
         
-        <div class="post__detail">
-            <p>蒙版层是网页上常用的一种效果，一般用于显示模态弹出层时屏蔽对下层的操作。实现很easy，一般 <code>background: rgba(0,0,0,0.7);</code> 就可以了。</p>
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dxinef.github.io/2017/09-08-镂空蒙版层的几种实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杜草原">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/16408347">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杜草原de踩坑记录">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">镂空蒙版层的几种实现</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T16:58:20+08:00">
+                2017-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>蒙版层是网页上常用的一种效果，一般用于显示模态弹出层时屏蔽对下层的操作。实现很easy，一般 <code>background: rgba(0,0,0,0.7);</code> 就可以了。</p>
 <p>但还有一种使用场景，像“使用引导”这类，就不能简单用半透明背景色来处理。这种情况下，需要对蒙版进行“镂空”的处理。</p>
 <p>有粗暴处理的方法，就是用一张对应页面区域的截图进行定位，但这只适合下层的页面部分为纯静态内容，如果是动态处理的内容，那就不合适了。</p>
 <p>之前总结过一些处理的思路，还做了demo。可是忘记了保存在什么地方（哭死，论有规律存档的重要性）。。。只能重新总结，这次应该不会再丢失吧。</p>
@@ -70,33 +337,347 @@
 <p>参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/mask" target="_blank" rel="external">mask - CSS | MDN</a></p>
 <h2 id="6、svg-实现"><a href="#6、svg-实现" class="headerlink" title="6、svg 实现"></a>6、svg 实现</h2><p>待补充。</p>
 
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术文档/" rel="tag"># 技术文档</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08-25-ie8下的textNode与attributeNode不能设置自定义属性/" rel="next" title="ie8下文本节点与属性节点不能增加自定义属性">
+                <i class="fa fa-chevron-left"></i> ie8下文本节点与属性节点不能增加自定义属性
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09-20-input-file-打开很慢/" rel="prev" title="input:file 打开很慢">
+                input:file 打开很慢 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
         </div>
         
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-    
-    
-    <div class="post__tag">
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术文档/">技术文档</a></li></ul>
-    </div>
-    
-</article>
-    </div>
-</section>
-<!-- //content -->
+  </div>
 
-<!-- footer -->
-<footer class="footer" id="footer">
-    <div class="footer__inner">
-        <div class="copyright">
-            © 2017 <i class="fa fa-heart"></i> 杜草原
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/16408347"
+               alt="杜草原" />
+          <p class="site-author-name" itemprop="name">杜草原</p>
+           
+              <p class="site-description motion-element" itemprop="description">踩坑不要紧，关键是能爬出来</p>
+          
         </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、图片实现"><span class="nav-number">1.</span> <span class="nav-text">1、图片实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、通过-border-实现"><span class="nav-number">2.</span> <span class="nav-text">2、通过 border 实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、通过-background-的渐变实现"><span class="nav-number">3.</span> <span class="nav-text">3、通过 background 的渐变实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、clip-path-属性"><span class="nav-number">4.</span> <span class="nav-text">4、clip-path 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、mask-属性"><span class="nav-number">5.</span> <span class="nav-text">5、mask 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、svg-实现"><span class="nav-number">6.</span> <span class="nav-text">6、svg 实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
     </div>
-</footer>
-<!-- //footer -->
+  </aside>
 
-<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="/js/main.js"></script>
 
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杜草原</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>

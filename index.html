@@ -1,164 +1,706 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="renderer" content="webkit"> 
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
-    <meta name="format-detection" content="telephone=no,email=no">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
     
-    <title>杜草原de踩坑记录</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="applicable-device" content="pc,mobile">
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="踩坑不要紧，关键是能爬出来">
+<meta property="og:type" content="website">
+<meta property="og:title" content="杜草原de踩坑记录">
+<meta property="og:url" content="https://dxinef.github.io/index.html">
+<meta property="og:site_name" content="杜草原de踩坑记录">
+<meta property="og:description" content="踩坑不要紧，关键是能爬出来">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="杜草原de踩坑记录">
+<meta name="twitter:description" content="踩坑不要紧，关键是能爬出来">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://dxinef.github.io/"/>
+
+
+
+
+
+  <title>杜草原de踩坑记录</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </head>
-<body>
-<!-- header -->
-<header class="header" id="header">
-    <div class="header__inner">
-        <h1 class="title">
-            
-            <img src="https://avatars0.githubusercontent.com/u/16408347">
-            <em><a href="/">杜草原de踩坑记录</a></em>
-            <span>踩坑不要紧，关键是能爬出来</span>
-        </h1>
-        <nav class="nav">
-            
-            <a href="/"><i class="fa fa-home"></i> Home</a>
-            
-            <a href="/archives"><i class="fa fa-file-text"></i> Archives</a>
-            
-            <a href="/about"><i class="fa fa-id-card"></i> About</a>
-            
-        </nav>
-    </div>
-</header>
-<!-- //header -->
 
-<!-- content -->
-<section class="content" id="content">
-    <div class="content__inner">
-    
-    <article class="post">
-    <div class="post__header">
-        <h1 class="post__title">
-            <a class="post__link" href="/2018/04-27-在switch语句中使用正则/">在switch语句中使用正则</a>
-        </h1>
-        <time class="post__time">
-            2018-04-27
-        </time>
-    </div>
-    
-    <div class="post__content ">
-        
-        <div class="post__brief">
-            方法1
-var str = &quot;abcxyz&quot;;
-switch(true) {
-    case /xyz/.test(str) :
-        console.log(&quot;1&quot;);
-        break;
-    default:
-        console.l...
-        </div>
-        
-        <div class="post__detail">
-            <p>方法1</p>
-<pre><code>var str = &quot;abcxyz&quot;;
-switch(true) {
-    case /xyz/.test(str) :
-        console.log(&quot;1&quot;);
-        break;
-    default:
-        console.log(&quot;0&quot;);
-        break;
-}
-</code></pre><p>方法2</p>
-<pre><code>var str = &quot;abcxyz&quot;;
-switch(str) {
-    case (str.match(/xyz/) || {}).input :
-        console.log(&quot;1&quot;);
-        break;
-    default:
-        console.log(&quot;0&quot;);
-        break;
-}
-</code></pre><p>方法3</p>
-<pre><code>var str = &quot;abcxyz&quot;;
-switch(str) {
-    case (/xyz/.test(str) ? str : NaN) : //输入值为NaN时不命中
-        console.log(&quot;1&quot;);
-        break;
-    default:
-        console.log(&quot;0&quot;);
-        break;
-}
-</code></pre>
-        </div>
-        
-        <span class="post__showall" onclick="javascript:articleFolder(this)"></span>
-        
-    </div>
-    
-    
-</article>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <article class="post">
-    <div class="post__header">
-        <h1 class="post__title">
-            <a class="post__link" href="/2018/04-11-console-font-color/">console font color</a>
-        </h1>
-        <time class="post__time">
-            2018-04-11
-        </time>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">杜草原de踩坑记录</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dxinef.github.io/2019/01-24-尝试virtualbox安装centos/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杜草原">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/16408347">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杜草原de踩坑记录">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01-24-尝试virtualbox安装centos/" itemprop="url">尝试virtualbox安装centos</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-24T23:49:08+08:00">
+                2019-01-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>用virtualbox新建虚拟机，用centos的iso进行安装。<br>这没什么好说的，一路确认就行了。<br>但有几点要注意：虚拟机网络设置为“网络地址转换(NAT)”，让vb自己处理；在安装程序里就把网络设置好，毕竟GUI下比命令行要方便。</p>
+</li>
+<li><p>虚拟机安装好以后，进入“设置 - 网络 - 网卡1 - 高级 - 端口转发”，添加一条规则ssh，子系统端口“22”，主机端口随便找一个好记的比如“9999”。<br>另外，再新增一条规则http，子系统端口“80”，主机端口还是随便，我用的“9998”。<br>然后下面的操作就可以在powershell里进行了，比centos的命令行环境用起来舒服不止一点。当然也可以用其他ssh客户端。   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -P 9999 root@localhost</div></pre></td></tr></table></figure>
+</li>
+<li><p>装nginx。<br>因为yum自身的repo里并不包含nginx，所以要手动的添加。参考nginx官网的作法。 <a href="https://www.nginx.com/resources/wiki/start/topics/tutorials/install/" target="_blank" rel="external">https://www.nginx.com/resources/wiki/start/topics/tutorials/install/</a><br>3.1. 新建 /etc/yum.repos.d/nginx.repo ，贴入相应的内容。<br>3.2. 执行yum install nginx 安装。<br>3.3. 安装完成后，systemctl enable nginx.service，允许nginx开机启动。<br>3.4. curl <a href="http://localhost/" target="_blank" rel="external">http://localhost/</a> ，应该可以看到nginx的欢迎页。</p>
+</li>
+<li><p>如果防火墙是iptables，则在iptables的设置中新增相应规则。起初我在网上查到都是iptables的设置，怎么添加规则重启服务都没用。后来才知道centos的默认防火墙是firewalld。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --state  查看防火墙状态  </div><div class="line">firewall-cmd --permanent --zone=public --add-port=80/tcp 永久开启80端口  </div><div class="line">firewall-cmd --reload  重启防火墙</div></pre></td></tr></table></figure>
+</li>
+<li><p>在宿主机的浏览器中敲<a href="http://localhost:9998" target="_blank" rel="external">http://localhost:9998</a> ，如果一切顺利，应该也可以看到nginx的欢迎页了。</p>
+</li>
+</ol>
+
+          
+        
+      
     </div>
     
-    <div class="post__content ">
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dxinef.github.io/2018/04-27-在switch语句中使用正则/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杜草原">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/16408347">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杜草原de踩坑记录">
+    </span>
+
+    
+      <header class="post-header">
+
         
-        <div class="post__brief">
-            Colors reference12345678910111213141516171819202122232425Reset = &quot;\x1b[0m&quot;Bright = &quot;\x1b[1m&quot;Dim = &quot;\x1b[2m&quot;Underscore = &quot;\...
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04-27-在switch语句中使用正则/" itemprop="url">在switch语句中使用正则</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-27T16:49:23+08:00">
+                2018-04-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
-        <div class="post__detail">
+          
+            <p>方法1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var str = &quot;abcxyz&quot;;</div><div class="line">switch(true) &#123;</div><div class="line">    case /xyz/.test(str) :</div><div class="line">        console.log(&quot;1&quot;);</div><div class="line">        break;</div><div class="line">    default:</div><div class="line">        console.log(&quot;0&quot;);</div><div class="line">        break;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>方法2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var str = &quot;abcxyz&quot;;</div><div class="line">switch(str) &#123;</div><div class="line">    case (str.match(/xyz/) || &#123;&#125;).input :</div><div class="line">        console.log(&quot;1&quot;);</div><div class="line">        break;</div><div class="line">    default:</div><div class="line">        console.log(&quot;0&quot;);</div><div class="line">        break;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>方法3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var str = &quot;abcxyz&quot;;</div><div class="line">switch(str) &#123;</div><div class="line">    case (/xyz/.test(str) ? str : NaN) : //输入值为NaN时不命中</div><div class="line">        console.log(&quot;1&quot;);</div><div class="line">        break;</div><div class="line">    default:</div><div class="line">        console.log(&quot;0&quot;);</div><div class="line">        break;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><a href="https://stackoverflow.com/questions/2896626/switch-statement-for-string-matching-in-javascript" target="_blank" rel="external">switch-statement-for-string-matching-in-javascript - Stack Overflow</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dxinef.github.io/2018/04-11-console-font-color/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杜草原">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/16408347">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杜草原de踩坑记录">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04-11-console-font-color/" itemprop="url">console font color</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T18:13:41+08:00">
+                2018-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
             <p>Colors reference<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">Reset = &quot;\x1b[0m&quot;</div><div class="line">Bright = &quot;\x1b[1m&quot;</div><div class="line">Dim = &quot;\x1b[2m&quot;</div><div class="line">Underscore = &quot;\x1b[4m&quot;</div><div class="line">Blink = &quot;\x1b[5m&quot;</div><div class="line">Reverse = &quot;\x1b[7m&quot;</div><div class="line">Hidden = &quot;\x1b[8m&quot;</div><div class="line"></div><div class="line">FgBlack = &quot;\x1b[30m&quot;</div><div class="line">FgRed = &quot;\x1b[31m&quot;</div><div class="line">FgGreen = &quot;\x1b[32m&quot;</div><div class="line">FgYellow = &quot;\x1b[33m&quot;</div><div class="line">FgBlue = &quot;\x1b[34m&quot;</div><div class="line">FgMagenta = &quot;\x1b[35m&quot;</div><div class="line">FgCyan = &quot;\x1b[36m&quot;</div><div class="line">FgWhite = &quot;\x1b[37m&quot;</div><div class="line"></div><div class="line">BgBlack = &quot;\x1b[40m&quot;</div><div class="line">BgRed = &quot;\x1b[41m&quot;</div><div class="line">BgGreen = &quot;\x1b[42m&quot;</div><div class="line">BgYellow = &quot;\x1b[43m&quot;</div><div class="line">BgBlue = &quot;\x1b[44m&quot;</div><div class="line">BgMagenta = &quot;\x1b[45m&quot;</div><div class="line">BgCyan = &quot;\x1b[46m&quot;</div><div class="line">BgWhite = &quot;\x1b[47m&quot;</div></pre></td></tr></table></figure></p>
-<p><a href="https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color" target="_blank" rel="external">how-to-change-node-jss-console-font-color</a></p>
+<p><a href="https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color" target="_blank" rel="external">how-to-change-node-jss-console-font-color - Stack Overflow</a></p>
 
-        </div>
+          
         
-        <span class="post__showall" onclick="javascript:articleFolder(this)"></span>
-        
+      
     </div>
     
     
-</article>
-
-    <article class="post">
-    <div class="post__header">
-        <h1 class="post__title">
-            <a class="post__link" href="/2018/02-01-IE各个版本hack/">IE各个版本hack</a>
-        </h1>
-        <time class="post__time">
-            2018-02-01
-        </time>
-    </div>
     
-    <div class="post__content ">
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dxinef.github.io/2018/02-01-IE各个版本hack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杜草原">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/16408347">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杜草原de踩坑记录">
+    </span>
+
+    
+      <header class="post-header">
+
         
-        <div class="post__brief">
-            1、CSS HACK实现IE 6
-* html .ie6 {property:value;}
-or
-.ie6 { _property:value;}
-IE 7
-*+html .ie7 {property:value;}
-or
-*:first-child+html .ie7 {property:value;}
-IE...
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02-01-IE各个版本hack/" itemprop="url">IE各个版本hack</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-01T14:57:25+08:00">
+                2018-02-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
-        <div class="post__detail">
+          
             <h2 id="1、CSS-HACK实现"><a href="#1、CSS-HACK实现" class="headerlink" title="1、CSS HACK实现"></a>1、CSS HACK实现</h2><p>IE 6</p>
 <pre><code>* html .ie6 {property:value;}
 </code></pre><p>or</p>
@@ -224,62 +766,244 @@ IE...
 }
 </code></pre><p>References:<br><a href="https://stackoverflow.com/questions/20541306/how-to-write-a-css-hack-for-ie-11/20541859#20541859" target="_blank" rel="external">css selectors - How to write a CSS hack for IE 11? - Stack Overflow</a></p>
 
-        </div>
+          
         
-        <span class="post__showall" onclick="javascript:articleFolder(this)"></span>
-        
+      
     </div>
     
     
-</article>
-
-    <article class="post">
-    <div class="post__header">
-        <h1 class="post__title">
-            <a class="post__link" href="/2018/01-19-自己做的一个小游戏/">自己做的一个小游戏</a>
-        </h1>
-        <time class="post__time">
-            2018-01-19
-        </time>
-    </div>
     
-    <div class="post__content ">
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dxinef.github.io/2018/01-19-自己做的一个小游戏/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杜草原">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/16408347">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杜草原de踩坑记录">
+    </span>
+
+    
+      <header class="post-header">
+
         
-        <div class="post__brief">
-            The Tower
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01-19-自己做的一个小游戏/" itemprop="url">自己做的一个小游戏</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-19T18:01:33+08:00">
+                2018-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
 
         </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
-        <div class="post__detail">
+          
             <p><a href="https://codepen.io/dxinef/full/baOrZN/" target="_blank" rel="external">The Tower</a></p>
 
-        </div>
+          
         
-        <span class="post__showall" onclick="javascript:articleFolder(this)"></span>
-        
+      
     </div>
     
     
-</article>
+    
 
-    <article class="post">
-    <div class="post__header">
-        <h1 class="post__title">
-            <a class="post__link" href="/2017/11-08-一个导致安卓4-4-4下app闪退的问题/">一个导致安卓4.4.4下app闪退的问题</a>
-        </h1>
-        <time class="post__time">
-            2017-11-08
-        </time>
-    </div>
     
-    <div class="post__content ">
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dxinef.github.io/2017/11-08-一个导致安卓4-4-4下app闪退的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杜草原">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/16408347">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杜草原de踩坑记录">
+    </span>
+
+    
+      <header class="post-header">
+
         
-        <div class="post__brief">
-            运营人员反馈了一个问题，说用安卓版掌厅客户端进某个活动页面，客户端闪退。这是很严重的问题，立马找了个安卓手机进行测试，并没有发现她报告的问题。然后找运营要了出问题的手机对照，发现出问题的手机是安卓4.4.4，而其他版本下的客户端暂时未发现问题。
-只好用最笨的排除法，把页面可疑元素一个个去掉来定位。最后定位到是一个...
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11-08-一个导致安卓4-4-4下app闪退的问题/" itemprop="url">一个导致安卓4.4.4下app闪退的问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T17:29:25+08:00">
+                2017-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
-        <div class="post__detail">
+          
             <p>运营人员反馈了一个问题，说用安卓版掌厅客户端进某个活动页面，客户端闪退。这是很严重的问题，立马找了个安卓手机进行测试，并没有发现她报告的问题。然后找运营要了出问题的手机对照，发现出问题的手机是安卓4.4.4，而其他版本下的客户端暂时未发现问题。</p>
 <p>只好用最笨的排除法，把页面可疑元素一个个去掉来定位。最后定位到是一个有animation的::after，去掉以后即可解决闪退的问题。</p>
 <p>但其他页面上也有在::after上应用animation的，并未出现闪退情况。</p>
@@ -287,75 +1011,247 @@ IE...
 <p>特此记录。</p>
 <p>参考 <a href="http://ued.ctrip.com/blog/crash-app-by-css.html" target="_blank" rel="external">原来 CSS 这样写是会让 app 崩溃的</a></p>
 
-        </div>
+          
         
-        <span class="post__showall" onclick="javascript:articleFolder(this)"></span>
-        
+      
     </div>
     
     
-    <div class="post__tag">
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/踩坑/">踩坑</a></li></ul>
-    </div>
     
-</article>
 
-    <article class="post">
-    <div class="post__header">
-        <h1 class="post__title">
-            <a class="post__link" href="/2017/09-20-input-file-打开很慢/">input:file 打开很慢</a>
-        </h1>
-        <time class="post__time">
-            2017-09-20
-        </time>
-    </div>
     
-    <div class="post__content ">
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dxinef.github.io/2017/09-20-input-file-打开很慢/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杜草原">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/16408347">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杜草原de踩坑记录">
+    </span>
+
+    
+      <header class="post-header">
+
         
-        <div class="post__brief">
-            某后台系统项目，开发反映说页面中的input:file点击后，有时候需要数秒后才弹出选择文件的窗口。正常情况下，应该是点击后立刻就弹出；但有时候要等上三五秒。
-经查网上查资料以及慢慢排查，确定是 accept=”image/*” 所导致。
-改为 accept=”image/jpg,image/jpeg,image...
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09-20-input-file-打开很慢/" itemprop="url">input:file 打开很慢</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-20T17:18:01+08:00">
+                2017-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
-        <div class="post__detail">
+          
             <p>某后台系统项目，开发反映说页面中的input:file点击后，有时候需要数秒后才弹出选择文件的窗口。正常情况下，应该是点击后立刻就弹出；但有时候要等上三五秒。</p>
 <p>经查网上查资料以及慢慢排查，确定是 accept=”image/*” 所导致。</p>
 <p>改为 accept=”image/jpg,image/jpeg,image/png” 解决问题。</p>
 <p>猜测是因为文件夹内文件太多，而浏览器需要在文件选择弹框内对文件进行比对通配符来过滤导致的。</p>
 
-        </div>
+          
         
-        <span class="post__showall" onclick="javascript:articleFolder(this)"></span>
-        
+      
     </div>
     
     
-    <div class="post__tag">
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/踩坑/">踩坑</a></li></ul>
-    </div>
     
-</article>
 
-    <article class="post">
-    <div class="post__header">
-        <h1 class="post__title">
-            <a class="post__link" href="/2017/09-08-镂空蒙版层的几种实现/">镂空蒙版层的几种实现</a>
-        </h1>
-        <time class="post__time">
-            2017-09-08
-        </time>
-    </div>
     
-    <div class="post__content ">
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dxinef.github.io/2017/09-08-镂空蒙版层的几种实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杜草原">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/16408347">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杜草原de踩坑记录">
+    </span>
+
+    
+      <header class="post-header">
+
         
-        <div class="post__brief">
-            蒙版层是网页上常用的一种效果，一般用于显示模态弹出层时屏蔽对下层的操作。实现很easy，一般 background: rgba(0,0,0,0.7); 就可以了。
-但还有一种使用场景，像“使用引导”这类，就不能简单用半透明背景色来处理。这种情况下，需要对蒙版进行“镂空”的处理。
-有粗暴处理的方法，就是用一张对应页...
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09-08-镂空蒙版层的几种实现/" itemprop="url">镂空蒙版层的几种实现</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T16:58:20+08:00">
+                2017-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
-        <div class="post__detail">
+          
             <p>蒙版层是网页上常用的一种效果，一般用于显示模态弹出层时屏蔽对下层的操作。实现很easy，一般 <code>background: rgba(0,0,0,0.7);</code> 就可以了。</p>
 <p>但还有一种使用场景，像“使用引导”这类，就不能简单用半透明背景色来处理。这种情况下，需要对蒙版进行“镂空”的处理。</p>
 <p>有粗暴处理的方法，就是用一张对应页面区域的截图进行定位，但这只适合下层的页面部分为纯静态内容，如果是动态处理的内容，那就不合适了。</p>
@@ -373,38 +1269,124 @@ IE...
 <p>参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/mask" target="_blank" rel="external">mask - CSS | MDN</a></p>
 <h2 id="6、svg-实现"><a href="#6、svg-实现" class="headerlink" title="6、svg 实现"></a>6、svg 实现</h2><p>待补充。</p>
 
-        </div>
+          
         
-        <span class="post__showall" onclick="javascript:articleFolder(this)"></span>
-        
+      
     </div>
     
     
-    <div class="post__tag">
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术文档/">技术文档</a></li></ul>
-    </div>
     
-</article>
 
-    <article class="post">
-    <div class="post__header">
-        <h1 class="post__title">
-            <a class="post__link" href="/2017/08-25-ie8下的textNode与attributeNode不能设置自定义属性/">ie8下文本节点与属性节点不能增加自定义属性</a>
-        </h1>
-        <time class="post__time">
-            2017-08-25
-        </time>
-    </div>
     
-    <div class="post__content ">
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dxinef.github.io/2017/08-25-ie8下的textNode与attributeNode不能设置自定义属性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杜草原">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/16408347">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杜草原de踩坑记录">
+    </span>
+
+    
+      <header class="post-header">
+
         
-        <div class="post__brief">
-            之前与 @张海峰 一起实现了一个HTML模板功能，不使用innerhtml，只替换对应的模板字符串。
-实现原理是为遍历筛选出包含模板字符串的文本节点与属性节点，将原始模板保存在当前节点的一个自定义属性（例如_template）中。此后进行替换时，取当前节点的_template属性值进行计算。
-在高版本浏览器中，运...
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08-25-ie8下的textNode与attributeNode不能设置自定义属性/" itemprop="url">ie8下文本节点与属性节点不能增加自定义属性</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-25T13:04:19+08:00">
+                2017-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
-        <div class="post__detail">
+          
             <p>之前与 @张海峰 一起实现了一个HTML模板功能，不使用innerhtml，只替换对应的模板字符串。</p>
 <p>实现原理是为遍历筛选出包含模板字符串的文本节点与属性节点，将原始模板保存在当前节点的一个自定义属性（例如_template）中。此后进行替换时，取当前节点的_template属性值进行计算。</p>
 <p>在高版本浏览器中，运行很好，但在ie7/8下就坑了。ie7/8并不支持为text node与attribute node增加自定义属性，只支持element node增加自定义属性。</p>
@@ -414,114 +1396,421 @@ IE...
 <li>当node为attribute时，为当前的element增加一个自定义属性（例如data-tpl-attrName），属性值为当前attributeNode的值。</li>
 </ol>
 
-        </div>
+          
         
-        <span class="post__showall" onclick="javascript:articleFolder(this)"></span>
-        
+      
     </div>
     
     
-    <div class="post__tag">
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/踩坑/">踩坑</a></li></ul>
-    </div>
     
-</article>
 
-    <article class="post">
-    <div class="post__header">
-        <h1 class="post__title">
-            <a class="post__link" href="/2017/08-25-ios下弹性滚动的bug/">ios下弹性滚动的bug</a>
-        </h1>
-        <time class="post__time">
-            2017-08-25
-        </time>
-    </div>
     
-    <div class="post__content ">
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dxinef.github.io/2017/08-25-ios下弹性滚动的bug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杜草原">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/16408347">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杜草原de踩坑记录">
+    </span>
+
+    
+      <header class="post-header">
+
         
-        <div class="post__brief">
-            在ios的UIWebView下，overflow:auto; 的元素的滚动很生硬，有时候会用 -webkit-overflow-scrolling:touch; 来实现类似原生的弹性滚动。
-原理大约是UIWebView会对设置了 -webkit-overflow-scrolling:touch; 的对象，创建一个...
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08-25-ios下弹性滚动的bug/" itemprop="url">ios下弹性滚动的bug</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-25T11:51:38+08:00">
+                2017-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
-        <div class="post__detail">
+          
             <p>在ios的UIWebView下，overflow:auto; 的元素的滚动很生硬，有时候会用 -webkit-overflow-scrolling:touch; 来实现类似原生的弹性滚动。</p>
 <p>原理大约是UIWebView会对设置了 -webkit-overflow-scrolling:touch; 的对象，创建一个UIWebOverflowScrollView来实现类似原生的渲染。</p>
 <p>一般情况下没什么问题，但在某些时候，元素在内容滚动时会卡住，并带着整个页面一起移动了。</p>
 <p>暂时没有找到好的解决方法，只能先把弹性滚动干掉了。</p>
 <p>参考 <a href="http://www.cnblogs.com/chris-oil/p/6164966.html" target="_blank" rel="external">iOS 与 惯性滚动</a></p>
 
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
         </div>
         
-        <span class="post__showall" onclick="javascript:articleFolder(this)"></span>
-        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-    
-    
-    <div class="post__tag">
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/踩坑/">踩坑</a></li></ul>
-    </div>
-    
-</article>
+  </div>
 
-    <article class="post">
-    <div class="post__header">
-        <h1 class="post__title">
-            <a class="post__link" href="/2017/08-17-IE7-8获取不到不支持的css属性值/">IE7/8获取不到不支持的css属性值</a>
-        </h1>
-        <time class="post__time">
-            2017-08-17
-        </time>
-    </div>
+  <aside id="sidebar" class="sidebar">
     
-    <div class="post__content ">
-        
-        <div class="post__brief">
-            原本是想实现在IE7/8下能兼容rem单位的polyfill，结果不小心踩到几个坑。特记录如下
-1、IE7下，可以用style.getAttribute(“width”)来获取到不支持的属性值；但IE8下不可以；
-2、不支持的属性的属性值，如background-size，是可以直接获取到的；
-3、IE7/8下，...
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/16408347"
+               alt="杜草原" />
+          <p class="site-author-name" itemprop="name">杜草原</p>
+           
+              <p class="site-description motion-element" itemprop="description">踩坑不要紧，关键是能爬出来</p>
+          
         </div>
-        
-        <div class="post__detail">
-            <p>原本是想实现在IE7/8下能兼容rem单位的polyfill，结果不小心踩到几个坑。特记录如下</p>
-<p>1、IE7下，可以用style.getAttribute(“width”)来获取到不支持的属性值；但IE8下不可以；</p>
-<p>2、不支持的属性的属性值，如background-size，是可以直接获取到的；</p>
-<p>3、IE7/8下，&lt;style&gt;标签的innerHTML，只有在页面加载后的极短时间，能获取原始值；获取到的是浏览器处理过的值，不支持的属性值都被干掉了。</p>
+        <nav class="site-state motion-element">
 
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
         </div>
-        
-        <span class="post__showall" onclick="javascript:articleFolder(this)"></span>
-        
-    </div>
-    
-    
-    <div class="post__tag">
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/踩坑/">踩坑</a></li></ul>
-    </div>
-    
-</article>
 
-<div class="pagination">
-    <span class="page-number current">1</span>
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杜草原</span>
 </div>
-    </div>
-</section>
-<!-- //content -->
 
-<!-- footer -->
-<footer class="footer" id="footer">
-    <div class="footer__inner">
-        <div class="copyright">
-            © 2017 <i class="fa fa-heart"></i> 杜草原
-        </div>
-    </div>
-</footer>
-<!-- //footer -->
 
-<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="/js/main.js"></script>
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
 
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>
