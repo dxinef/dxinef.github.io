@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="Mpvue到目前”^2.0.0”为止，还没有支持在template内使用methods和filters的计划。 Wepy下可以用wxs来解决，但Mpvue直接使用wxs会报错。 我找到一个HACK的方案，实现也很简单。 1、按wxs的方式在template中添加代码；2、在methods下，添加一个与wxs模块同名的空function ； 1234567891011121314151617&amp;lt;">
+<meta name="description" content="Mpvue到目前”^2.0.0”为止，还没有支持在template内使用methods和filters的计划。 Wepy下可以用wxs来解决，但Mpvue直接使用wxs会报错。 我找到一个HACK的方案，实现也很简单。  按wxs的方式在template中添加代码；   在methods下，添加一个与wxs模块同名的空function ；  1234567891011121314151617&amp;lt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mpvue不支持在template内使用methods中函数的HACK方案">
 <meta property="og:url" content="https://dxinef.github.io/2019/05-10-Mpvue不支持在template内使用methods中函数的HACK方案/index.html">
 <meta property="og:site_name" content="杜草原de踩坑记录">
-<meta property="og:description" content="Mpvue到目前”^2.0.0”为止，还没有支持在template内使用methods和filters的计划。 Wepy下可以用wxs来解决，但Mpvue直接使用wxs会报错。 我找到一个HACK的方案，实现也很简单。 1、按wxs的方式在template中添加代码；2、在methods下，添加一个与wxs模块同名的空function ； 1234567891011121314151617&amp;lt;">
+<meta property="og:description" content="Mpvue到目前”^2.0.0”为止，还没有支持在template内使用methods和filters的计划。 Wepy下可以用wxs来解决，但Mpvue直接使用wxs会报错。 我找到一个HACK的方案，实现也很简单。  按wxs的方式在template中添加代码；   在methods下，添加一个与wxs模块同名的空function ；  1234567891011121314151617&amp;lt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-10T05:58:21.947Z">
+<meta property="og:updated_time" content="2019-05-10T06:07:12.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mpvue不支持在template内使用methods中函数的HACK方案">
-<meta name="twitter:description" content="Mpvue到目前”^2.0.0”为止，还没有支持在template内使用methods和filters的计划。 Wepy下可以用wxs来解决，但Mpvue直接使用wxs会报错。 我找到一个HACK的方案，实现也很简单。 1、按wxs的方式在template中添加代码；2、在methods下，添加一个与wxs模块同名的空function ； 1234567891011121314151617&amp;lt;">
+<meta name="twitter:description" content="Mpvue到目前”^2.0.0”为止，还没有支持在template内使用methods和filters的计划。 Wepy下可以用wxs来解决，但Mpvue直接使用wxs会报错。 我找到一个HACK的方案，实现也很简单。  按wxs的方式在template中添加代码；   在methods下，添加一个与wxs模块同名的空function ；  1234567891011121314151617&amp;lt">
 
 
 
@@ -322,9 +322,14 @@
         <p>Mpvue到目前”^2.0.0”为止，还没有支持在template内使用methods和filters的计划。</p>
 <p>Wepy下可以用wxs来解决，但Mpvue直接使用wxs会报错。</p>
 <p>我找到一个HACK的方案，实现也很简单。</p>
-<p>1、按wxs的方式在template中添加代码；<br>2、在methods下，添加一个与wxs模块同名的空function ；</p>
+<ol>
+<li>按wxs的方式在template中添加代码；  </li>
+<li>在methods下，添加一个与wxs模块同名的空function ；</li>
+</ol>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">wxs</span> <span class="attr">module</span>=<span class="string">"foo"</span>&gt;</span></div><div class="line">  module.exports = function (a) &#123;</div><div class="line">    return a + a</div><div class="line">  &#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">wxs</span>&gt;</span></div><div class="line">  &#123;&#123;foo(1)&#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line">export default &#123;</div><div class="line">  methods: &#123;</div><div class="line">    foo () &#123;&#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>即可成功运行。</p>
+<p>这个方法能应急解决部分场景。但毕竟是HACK，而且实现非常不优雅。要完全解决，还是要等Mpvue官方更新。</p>
+<p>事实上Megalo等后发的小程序前端框架早就支持filters和methods了，证明这并非一个不可解决的问题。github上也有人提PR，Mpvue官方团队依然八风不动。是不是已经被放弃了。</p>
 
       
     </div>
